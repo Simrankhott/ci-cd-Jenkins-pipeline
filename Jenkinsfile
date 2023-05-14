@@ -27,15 +27,6 @@ pipeline {
       }
     }
     
-    stage('Git-Clone') {
-      when {
-        expression { params.action == 'create' }
-      }
-      steps {
-        sh "git clone https://github.com/Simrankhott/ci-cd-Jenkins-pipeline.git"
-      }
-    }
-    
     stage('Build-Maven') {
       when {
         expression { params.action == 'create' }
