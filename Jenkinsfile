@@ -74,7 +74,7 @@ pipeline {
 	    stage ("wait_for_pods"){
 	    steps{
               
-                sh 'sleep 300'
+                sh 'sleep 200'
              
 	    }
 	    }
