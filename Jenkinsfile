@@ -15,23 +15,16 @@ pipeline {
   }
   
   stages {
-    stage('Git-Checkout') {
+    stage('Git-Checkout and Build-Maven') {
       when {
         expression { params.action == 'create' }
       }
       steps {
         gitCheckout(
           branch: "main",
-          url: "https://github.com/Simrankhott/ci-cd-Jenkins-pipeline.git"
+          url: "https://github.com/Simrankhott/ci-cd-Jenkins-pipeline.git",
+          changelog: false // to avoid checking changelog
         )
-      }
-    }
-    
-    stage('Build-Maven') {
-      when {
-        expression { params.action == 'create' }
-      }
-      steps {
         dir("${params.AppName}") {
           sh 'mvn clean package'
         }
