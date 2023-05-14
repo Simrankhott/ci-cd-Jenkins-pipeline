@@ -1,4 +1,3 @@
-@Library('jenkins-shared-library@main')
 pipeline {
   agent any
   
@@ -37,7 +36,7 @@ pipeline {
       }
       steps {
         dir("${params.AppName}") {
-          dockerBuild("${params.ImageName}", "${params.docker_repo}")
+          dockerBuild ( "${params.ImageName}", "${params.docker_repo}" )
         }
       }
     }
@@ -47,7 +46,7 @@ pipeline {
         expression { params.action == 'create' }
       }
       steps {
-        dockerCleanup("${params.ImageName}", "${params.docker_repo}")
+        dockerCleanup ( "${params.ImageName}", "${params.docker_repo}" )
       }
     }
     
@@ -65,14 +64,14 @@ pipeline {
         expression { params.action == 'create' }
       }
       steps {
-        sh "echo ${WORKSPACE}"
+        sh 'echo ${WORKSPACE}'
         sh "kubectl create -f ${WORKSPACE}/kubernetes-configmap.yml"
       }
     }
     
-    stage("wait_for_pods") {
+    stage ("wait_for_pods") {
       steps {
-        sh "sleep 200"
+        sh 'sleep 200'
       }
     }
     
