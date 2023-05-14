@@ -38,7 +38,7 @@ pipeline {
       }
     }
     
-    stage("DockerBuild and Push") {
+    stage("Docker build and Push") {
       when {
         expression { params.action == 'create' }
       }
