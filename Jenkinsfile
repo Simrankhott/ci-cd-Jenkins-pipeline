@@ -92,7 +92,7 @@ pipeline {
       }
     }
     
-    stage("Rollback deployment") {
+    stage("Rollback the deployment") {
       steps {
         sh """
           kubectl delete deploy ${params.AppName}
