@@ -35,8 +35,6 @@ Log in to Docker-
 
 # Screenshots
 
-# Screenshots
-
 <p align="center">
   <img width="960" alt="spring1" src="https://github.com/Simrankhott/ci-cd-Jenkins-pipeline-eks-cluster/assets/91006102/76dc920d-eacd-4ff9-a20e-129cecb30a80">
 </p>
